@@ -1,5 +1,6 @@
 package org.algosketch.gradlev.practice;
 
+import org.algosketch.gradlev.practice.repository.JdbcTemplateMemberRepository;
 import org.algosketch.gradlev.practice.repository.JdbcUserRepository;
 import org.algosketch.gradlev.practice.repository.MemoryUserRepository;
 import org.algosketch.gradlev.practice.repository.UserRepository;
@@ -24,7 +25,8 @@ public class SpringConfig {
 
     @Bean
     public UserRepository userRepository() {
-        return new JdbcUserRepository(dataSource);
+//        return new JdbcUserRepository(dataSource);
 //        return new MemoryUserRepository();
+        return new JdbcTemplateMemberRepository(dataSource);
     }
 }
