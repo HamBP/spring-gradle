@@ -1,21 +1,21 @@
 package org.algosketch.gradlev.practice;
 
-import org.algosketch.gradlev.practice.repository.JdbcTemplateMemberRepository;
-import org.algosketch.gradlev.practice.repository.JdbcUserRepository;
-import org.algosketch.gradlev.practice.repository.MemoryUserRepository;
-import org.algosketch.gradlev.practice.repository.UserRepository;
+import org.algosketch.gradlev.practice.repository.*;
 import org.algosketch.gradlev.practice.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.persistence.EntityManager;
 import javax.sql.DataSource;
 
 @Configuration
 public class SpringConfig {
-    private DataSource dataSource;
+    private EntityManager em;
 
-    public SpringConfig(DataSource dataSource) {
-        this.dataSource = dataSource;
+    @Autowired
+    public SpringConfig(EntityManager em) {
+        this.em = em;
     }
 
     @Bean
@@ -27,6 +27,7 @@ public class SpringConfig {
     public UserRepository userRepository() {
 //        return new JdbcUserRepository(dataSource);
 //        return new MemoryUserRepository();
-        return new JdbcTemplateMemberRepository(dataSource);
+//        return new JdbcTemplateMemberRepository(dataSource);
+        return new JpaUserRepository(em);
     }
 }

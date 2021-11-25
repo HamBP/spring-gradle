@@ -4,10 +4,12 @@ import org.algosketch.gradlev.practice.domain.User;
 import org.algosketch.gradlev.practice.repository.MemoryUserRepository;
 import org.algosketch.gradlev.practice.repository.UserRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
+@Transactional
 public class UserService {
     UserRepository userRepository;
 

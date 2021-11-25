@@ -1,6 +1,11 @@
 package org.algosketch.gradlev.practice.domain;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "member")
 public class User {
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     String name;
 
