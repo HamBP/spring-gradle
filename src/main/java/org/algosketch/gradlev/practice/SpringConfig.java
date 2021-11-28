@@ -1,5 +1,6 @@
 package org.algosketch.gradlev.practice;
 
+import org.algosketch.gradlev.practice.aop.TimeTractAop;
 import org.algosketch.gradlev.practice.repository.*;
 import org.algosketch.gradlev.practice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,11 @@ public class SpringConfig {
     public UserService userService() {
         return new UserService(userRepository);
     }
+
+//    @Bean
+//    public TimeTractAop timeTractAop() {
+//        return new TimeTractAop();
+//    }
 
 //    @Bean
 //    public UserRepository userRepository() {
